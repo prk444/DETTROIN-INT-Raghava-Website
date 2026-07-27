@@ -6,6 +6,7 @@ import SectionTitle from '../components/ui/SectionTitle';
 import ProgramCard from '../components/cards/ProgramCard';
 import StatCard from '../components/cards/StatCard';
 import { SCHOOL_STATS, ACADEMIC_PROGRAMS, TESTIMONIALS, FAQS } from '../constants';
+import campusImg from '../assets/campus.jpg';
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -21,7 +22,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-50">
+      <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-50">
         {/* Abstract Architectural Shapes */}
         <div className="absolute top-0 right-0 w-2/3 h-full bg-[#0F4C81]/[0.02] rounded-bl-[100px] -z-10" />
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#F4B400]/[0.02] rounded-full blur-3xl -z-10" />
@@ -43,7 +44,7 @@ export default function Home() {
 
               {/* Subtext */}
               <p className="text-base sm:text-lg md:text-xl text-slate-500 font-light leading-relaxed max-w-2xl mb-10">
-                Horizon International School provides an elite, forward-thinking academic environment combining international curricula with tech-integrated learning and global citizenship.
+                Excellence International School provides an elite, forward-thinking academic environment combining international curricula with tech-integrated learning and global citizenship.
               </p>
 
               {/* Action Buttons */}
@@ -66,8 +67,8 @@ export default function Home() {
               {/* Main Image Wrapper */}
               <div className="relative w-full max-w-[440px] aspect-[4/5] rounded-[36px] overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
                 <img
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800"
-                  alt="Horizon International School Campus"
+                  src={campusImg}
+                  alt="Excellence International School Campus"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -98,8 +99,8 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 2. STATS SECTION */}
-      <section className="py-16 bg-white border-y border-slate-100">
+      {/* 2. STATS & FACILITIES SECTION */}
+      <section id="facilities" className="py-16 bg-white border-y border-slate-100">
         <Container>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SCHOOL_STATS.map((stat, index) => (
@@ -140,7 +141,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 4. WHY HORIZON SECTION (Split Screen Accent Grid) */}
+      {/* 4. WHY EXCELLENCE SECTION (Split Screen Accent Grid) */}
       <section id="about" className="py-24 bg-white overflow-hidden">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -185,7 +186,7 @@ export default function Home() {
             {/* Content Column */}
             <div className="lg:col-span-6 flex flex-col items-start text-left">
               <SectionTitle
-                badge="The Horizon Difference"
+                badge="The Excellence Difference"
                 title="A Premium Standard of Holistic Education"
                 subtitle="We integrate cognitive advancement, technological expertise, and character development into a cohesive framework that prepares pupils for global demands."
                 align="left"
@@ -230,15 +231,15 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 5. TESTIMONIALS SECTION */}
-      <section id="student-life" className="py-24 bg-slate-50">
+      {/* 5. COMMUNITY GALLERY & TESTIMONIALS */}
+      <section id="gallery" className="py-24 bg-slate-50">
         <Container>
           <SectionTitle
-            badge="Parent & Alumni Stories"
-            title="Loved by Our Global Community"
-            subtitle="Read reports from parents, alumni, and teachers sharing their firsthand experiences with Horizon's pedagogy."
-            className="mb-16"
-          />
+                  badge="Parent & Alumni Stories"
+                  title="Loved by Our Global Community"
+                  subtitle="Read reports from parents, alumni, and teachers sharing their firsthand experiences with Excellence's pedagogy."
+                  className="mb-16"
+                />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {TESTIMONIALS.map((t, index) => (
@@ -272,8 +273,8 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 6. INTERACTIVE FAQS SECTION */}
-      <section className="py-24 bg-white">
+      {/* 6. INTERACTIVE FAQS & CONTACT SECTION */}
+      <section id="contact" className="py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Header Columns */}
@@ -285,7 +286,7 @@ export default function Home() {
                 align="left"
               />
               <div className="mt-8">
-                <a href="mailto:admissions@horizon.edu">
+                <a href="mailto:info@excellencevalley.org">
                   <Button variant="secondary">
                     Contact Admissions Office
                   </Button>
@@ -337,31 +338,31 @@ export default function Home() {
       {/* 7. ADMISSIONS CTA BANNER */}
       <section id="admissions" className="py-20 bg-slate-50 relative overflow-hidden">
         <Container>
-          <div className="relative rounded-[40px] bg-gradient-to-br from-[#0F4C81] to-[#082a47] text-white p-12 md:p-16 lg:p-20 shadow-2xl overflow-hidden border border-[#0F4C81]/20">
+          <div className="relative rounded-[40px] bg-white/40 backdrop-blur-md text-slate-900 p-12 md:p-16 lg:p-20 shadow-premium border border-slate-200/50 overflow-hidden">
             {/* Visual accent highlights */}
             <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#F4B400]/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#0f4c81]/40 rounded-full blur-3xl" />
+            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#0F4C81]/5 rounded-full blur-3xl" />
 
             <div className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#F4B400] mb-4 bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#0F4C81] mb-4 bg-[#e7eff8] px-3.5 py-1.5 rounded-full border border-[#0F4C81]/15">
                 Join our Global Cohort
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6 font-heading">
                 Take the Next Step Toward Excellence
               </h2>
-              <p className="text-base sm:text-lg text-slate-200 font-light mb-10 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-600 font-light mb-10 leading-relaxed max-w-2xl">
                 Admissions for the upcoming school semester are currently open. Reach out to coordinate testing schedules or apply immediately online.
               </p>
               
               <div className="flex flex-wrap justify-center gap-4">
-                <Button variant="accent" size="lg" icon={ArrowRight}>
+                <Button variant="primary" size="lg" icon={ArrowRight}>
                   Apply Online Now
                 </Button>
-                <a href="mailto:admissions@horizon.edu">
+                <a href="mailto:info@excellencevalley.org">
                   <Button
                     variant="outline"
                     size="lg"
-                    className="bg-transparent text-white border-white/30 hover:bg-white hover:text-[#0F4C81] hover:border-white"
+                    className="bg-transparent text-[#0F4C81] border-[#0F4C81]/30 hover:bg-[#0F4C81] hover:text-white"
                   >
                     Contact Recruitment Desk
                   </Button>
