@@ -11,19 +11,19 @@ export default function StatCard({
   className = '',
 }) {
   return (
-    <div className={`flex flex-col p-8 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 text-[#2E2A24] ${className}`}>
+    <div className={`flex flex-col p-8 bg-white/70 border border-[#BAC095]/65 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 text-[#3D4127] ${className}`}>
       {/* Stat Value */}
-      <span className="text-4xl sm:text-5xl font-extrabold text-[#0F4C81] tracking-tight mb-2 font-heading">
+      <span className="text-4xl sm:text-5xl font-extrabold text-[#636B2F] tracking-tight mb-2 font-heading">
         {value}
       </span>
       
       {/* Label */}
-      <span className="text-sm font-semibold text-[#2E2A24] uppercase tracking-wider mb-2">
+      <span className="text-sm font-semibold text-[#3D4127] uppercase tracking-wider mb-2">
         {label}
       </span>
       
       {/* Description */}
-      <span className="text-xs sm:text-sm font-light text-[#2E2A24]/60 leading-relaxed">
+      <span className="text-xs sm:text-sm font-light text-[#3D4127]/60 leading-relaxed">
         {description}
       </span>
     </div>
