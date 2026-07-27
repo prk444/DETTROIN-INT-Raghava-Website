@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Calendar, Compass, Shield, Award, Users, BookOpen, ChevronDown, GraduationCap, Trophy, Target, Eye, Sparkles, Tv, Laptop, Globe, Activity, Lightbulb } from 'lucide-react';
+import { ArrowRight, Calendar, Compass, Shield, Award, Users, BookOpen, ChevronDown, GraduationCap, Trophy, Target, Eye, Sparkles, Tv, Laptop, Globe, Activity, Lightbulb, FlaskConical, Monitor, Music, Bus, HeartPulse, Waves } from 'lucide-react';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import SectionTitle from '../components/ui/SectionTitle';
@@ -137,22 +137,111 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 2. STATS & FACILITIES SECTION */}
-      <section id="facilities" className="py-20 relative overflow-hidden bg-gradient-to-b from-[#EBE6DC] to-[#F5F2EB] border-b border-[#E8E2D5]/30">
-        {/* Ambient Glowing Blobs (Emerald Green) */}
-        <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-[#16A34A]/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* 2. FACILITIES SECTION */}
+      <section id="facilities" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#EBE6DC] to-[#F5F2EB] border-b border-[#E8E2D5]/30">
+        {/* Glowing Blobs */}
+        <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-[#0F4C81]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#F4B400]/5 rounded-full blur-[100px] pointer-events-none" />
         
         <Container className="relative z-10">
+          <SectionTitle
+            badge="Our Facilities"
+            title="Premium Infrastructure for Modern Learning"
+            subtitle="Explore the high-end amenities that support our comprehensive curriculum and student life in Aligarh."
+            light={false}
+            className="mb-16"
+          />
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SCHOOL_STATS.map((stat, index) => (
-              <StatCard
-                key={index}
-                value={stat.value}
-                label={stat.label}
-                description={stat.description}
-              />
-            ))}
+            
+            {/* Facility 1: Library */}
+            <div className="group relative p-6 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 flex flex-col items-start">
+              <div className="w-10 h-10 rounded-xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <BookOpen className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-base font-bold text-[#2E2A24] mb-2 font-heading">Central Library</h4>
+              <p className="text-xs font-light text-[#2E2A24]/75 leading-relaxed">
+                Over 10,000 titles, digital journals, and private study pods for academic enquiry.
+              </p>
+            </div>
+
+            {/* Facility 2: Science Labs */}
+            <div className="group relative p-6 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 flex flex-col items-start">
+              <div className="w-10 h-10 rounded-xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <FlaskConical className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-base font-bold text-[#2E2A24] mb-2 font-heading">Science Labs</h4>
+              <p className="text-xs font-light text-[#2E2A24]/75 leading-relaxed">
+                Advanced chemistry, physics, and biology workspaces equipped for practical exploration.
+              </p>
+            </div>
+
+            {/* Facility 3: Sports Arena */}
+            <div className="group relative p-6 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 flex flex-col items-start">
+              <div className="w-10 h-10 rounded-xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Trophy className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-base font-bold text-[#2E2A24] mb-2 font-heading">Sports Arena</h4>
+              <p className="text-xs font-light text-[#2E2A24]/75 leading-relaxed">
+                Multi-sport courts, football turf, and training pitches under expert coaches.
+              </p>
+            </div>
+
+            {/* Facility 4: Computer Labs */}
+            <div className="group relative p-6 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 flex flex-col items-start">
+              <div className="w-10 h-10 rounded-xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Monitor className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-base font-bold text-[#2E2A24] mb-2 font-heading">Computer Labs</h4>
+              <p className="text-xs font-light text-[#2E2A24]/75 leading-relaxed">
+                Modern desktops loaded with coding environments and creative editing software.
+              </p>
+            </div>
+
+            {/* Facility 5: Music & Arts Studio */}
+            <div className="group relative p-6 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 flex flex-col items-start">
+              <div className="w-10 h-10 rounded-xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Music className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-base font-bold text-[#2E2A24] mb-2 font-heading">Music & Arts</h4>
+              <p className="text-xs font-light text-[#2E2A24]/75 leading-relaxed">
+                Acoustic rehearsal rooms, visual art displays, and recording mixers.
+              </p>
+            </div>
+
+            {/* Facility 6: Smart Transport */}
+            <div className="group relative p-6 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 flex flex-col items-start">
+              <div className="w-10 h-10 rounded-xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Bus className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-base font-bold text-[#2E2A24] mb-2 font-heading">Smart Transport</h4>
+              <p className="text-xs font-light text-[#2E2A24]/75 leading-relaxed">
+                GPS-enabled bus routes covering Aligarh with real-time student location tracking.
+              </p>
+            </div>
+
+            {/* Facility 7: Medical Care */}
+            <div className="group relative p-6 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 flex flex-col items-start">
+              <div className="w-10 h-10 rounded-xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <HeartPulse className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-base font-bold text-[#2E2A24] mb-2 font-heading">Medical Care</h4>
+              <p className="text-xs font-light text-[#2E2A24]/75 leading-relaxed">
+                An on-campus clinic with full-time registered nurses and periodic check-ups.
+              </p>
+            </div>
+
+            {/* Facility 8: Swimming Pool */}
+            <div className="group relative p-6 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1 flex flex-col items-start">
+              <div className="w-10 h-10 rounded-xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Waves className="w-5 h-5 stroke-[2]" />
+              </div>
+              <h4 className="text-base font-bold text-[#2E2A24] mb-2 font-heading">Swimming Pool</h4>
+              <p className="text-xs font-light text-[#2E2A24]/75 leading-relaxed">
+                An indoor, temperature-controlled half-Olympic pool with life coaches on stand-by.
+              </p>
+            </div>
+
           </div>
         </Container>
       </section>
@@ -447,55 +536,129 @@ export default function Home() {
 
       {/* 5. COMMUNITY GALLERY & TESTIMONIALS */}
       <section id="gallery" className="py-24 relative overflow-hidden bg-[#F5F2EB] border-b border-[#E8E2D5]/30">
-        {/* Ambient Glowing Blobs (Fuchsia/Violet) */}
+        {/* Ambient Glowing Blobs */}
         <div className="absolute top-1/3 right-10 w-96 h-96 bg-fuchsia-600/5 rounded-full blur-[120px] pointer-events-none animate-pulse-soft" />
         <div className="absolute bottom-10 left-1/4 w-80 h-80 bg-violet-600/5 rounded-full blur-[100px] pointer-events-none" />
 
         <Container className="relative z-10">
           <SectionTitle
-            badge="School Showcase"
-            title="Life at Excellence International"
-            subtitle="Explore our vibrant classrooms and dedicated activities in Aligarh."
+            badge="School Gallery"
+            title="A Visual Showcase of Student Life"
+            subtitle="Explore our vibrant campus and classrooms in a portfolio representation of our global community."
             light={false}
             className="mb-16"
           />
 
-          {/* Authentic Classroom Showcase Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-premium border border-[#E8E2D5]/50 bg-slate-200 group">
+          {/* Pinterest Masonry Image Grid */}
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 mb-24">
+            
+            {/* Item 1: Pre-Primary Kids */}
+            <div className="break-inside-avoid mb-6 rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 group relative bg-slate-200">
               <img
                 src={classroomKidsImg}
-                alt="Interactive pre-primary classroom"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                alt="Interactive Pre-Primary classroom"
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <span className="text-white text-sm font-semibold font-heading">Play-Based Pre-Primary Classroom</span>
+              <div className="absolute inset-0 bg-[#0F4C81]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white text-left">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold mb-1">Pre-Primary</span>
+                <h5 className="text-base font-bold font-heading">Joyful Interactive Learning</h5>
               </div>
             </div>
-            
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-premium border border-[#E8E2D5]/50 bg-slate-200 group">
+
+            {/* Item 2: Central Facade */}
+            <div className="break-inside-avoid mb-6 rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 group relative bg-slate-200">
+              <img
+                src={campusImg}
+                alt="Modern School Campus Facade"
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[#0F4C81]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white text-left">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold mb-1">Campus</span>
+                <h5 className="text-base font-bold font-heading">State-of-the-Art Architecture</h5>
+              </div>
+            </div>
+
+            {/* Item 3: Library (Unsplash) */}
+            <div className="break-inside-avoid mb-6 rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 group relative bg-slate-200">
+              <img
+                src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&q=80&w=400&h=550"
+                alt="Central Library study pods"
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[#0F4C81]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white text-left">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold mb-1">Library</span>
+                <h5 className="text-base font-bold font-heading">Focused Private Study Pods</h5>
+              </div>
+            </div>
+
+            {/* Item 4: Kids eating lunch */}
+            <div className="break-inside-avoid mb-6 rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 group relative bg-slate-200">
               <img
                 src={kidsLunchImg}
-                alt="Social interaction and lunch guidelines"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                alt="Social interaction lunch tables"
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <span className="text-white text-sm font-semibold font-heading">Nurturing Social Habits & Nutrition</span>
+              <div className="absolute inset-0 bg-[#0F4C81]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white text-left">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold mb-1">Social Habits</span>
+                <h5 className="text-base font-bold font-heading">Healthy Lunchroom Habits</h5>
               </div>
             </div>
 
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-premium border border-[#E8E2D5]/50 bg-slate-200 group">
+            {/* Item 5: High school students */}
+            <div className="break-inside-avoid mb-6 rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 group relative bg-slate-200">
+              <img
+                src={studentsImg}
+                alt="Excellence International Students"
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[#0F4C81]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white text-left">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold mb-1">Students</span>
+                <h5 className="text-base font-bold font-heading">Cultivating Future-Ready Leaders</h5>
+              </div>
+            </div>
+
+            {/* Item 6: Coding Lab (Unsplash) */}
+            <div className="break-inside-avoid mb-6 rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 group relative bg-slate-200">
+              <img
+                src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&q=80&w=400&h=300"
+                alt="Technology Integration lab"
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[#0F4C81]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white text-left">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold mb-1">Technology</span>
+                <h5 className="text-base font-bold font-heading">STEM & Coding Curriculum</h5>
+              </div>
+            </div>
+
+            {/* Item 7: Teacher feeding student */}
+            <div className="break-inside-avoid mb-6 rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 group relative bg-slate-200">
               <img
                 src={teacherFeedingImg}
-                alt="Personalized attention and care"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                alt="Personal attention by teacher"
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <span className="text-white text-sm font-semibold font-heading">Personalized Learning & Encouragement</span>
+              <div className="absolute inset-0 bg-[#0F4C81]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white text-left">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold mb-1">Encouragement</span>
+                <h5 className="text-base font-bold font-heading">Empathetic Personal Attention</h5>
               </div>
             </div>
+
+            {/* Item 8: Art Studio (Unsplash) */}
+            <div className="break-inside-avoid mb-6 rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 group relative bg-slate-200">
+              <img
+                src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=400&h=500"
+                alt="Visual arts studio painting"
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[#0F4C81]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white text-left">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold mb-1">Creative Arts</span>
+                <h5 className="text-base font-bold font-heading">Studio Painting & Rehearsals</h5>
+              </div>
+            </div>
+
           </div>
 
+          {/* Testimonials Header and Cards */}
           <SectionTitle
             badge="Parent & Alumni Stories"
             title="Loved by Our Global Community"
