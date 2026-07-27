@@ -2,16 +2,16 @@
 
 @theme {
   /* Brand Theme Colors */
-  --color-primary: #0F4C81;
+  --color-primary: #636B2F;
   --color-primary-hover: #0c3e6a;
   --color-primary-light: #e7eff8;
-  --color-accent: #F4B400;
+  --color-accent: #D4DE95;
   --color-accent-hover: #db9f00;
   --color-success: #16A34A;
   
-  /* Unified Warm Beige Theme Background & Text */
-  --color-background-custom: #F5F2EB;
-  --color-text-custom: #2E2A24;
+  /* Unified Light Sage Green Theme Background & Text */
+  --color-background-custom: #EBF1E9;
+  --color-text-custom: #3D4127;
   
   /* Brand Fonts */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -23,9 +23,9 @@
   --radius-3xl: 2rem;
   
   /* Soft Premium Shadows (Apple / Stripe style) */
-  --shadow-premium: 0 10px 30px -10px rgba(46, 42, 36, 0.06), 0 1px 3px rgba(0, 0, 0, 0.01);
-  --shadow-premium-hover: 0 20px 40px -12px rgba(46, 42, 36, 0.12), 0 4px 12px -2px rgba(46, 42, 36, 0.03);
-  --shadow-premium-soft: 0 4px 20px -2px rgba(46, 42, 36, 0.03), 0 1px 3px rgba(0, 0, 0, 0.01);
+  --shadow-premium: 0 10px 30px -10px rgba(42, 46, 40, 0.05), 0 1px 3px rgba(0, 0, 0, 0.01);
+  --shadow-premium-hover: 0 20px 40px -12px rgba(42, 46, 40, 0.1), 0 4px 12px -2px rgba(42, 46, 40, 0.02);
+  --shadow-premium-soft: 0 4px 20px -2px rgba(42, 46, 40, 0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
 }
 
 @layer base {
@@ -45,16 +45,16 @@
     font-family: var(--font-heading);
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: #2E2A24;
+    color: #3D4127;
   }
 }
 
 /* Micro-animations and Utilities */
 .glassmorphism {
-  background: rgba(252, 250, 242, 0.75);
+  background: rgba(254, 255, 253, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(232, 226, 213, 0.6);
+  border: 1px solid rgba(215, 225, 212, 0.65);
 }
 
 /* Soft transition defaults for interactive items */

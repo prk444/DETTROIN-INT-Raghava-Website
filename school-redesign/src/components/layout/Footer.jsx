@@ -10,14 +10,14 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="flex flex-col gap-6">
             <a href="#" className="flex items-center gap-2.5">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0f4c81] text-white">
+              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#636B2F] text-white">
                 <Compass className="w-5.5 h-5.5" />
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg leading-tight tracking-tight text-white">
                   EXCELLENCE
                 </span>
-                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold leading-none">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4DE95] font-semibold leading-none">
                   International
                 </span>
               </div>
@@ -49,7 +49,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#portal" className="hover:text-white transition-colors text-[#F4B400] font-medium">
+                <a href="#portal" className="hover:text-white transition-colors text-[#D4DE95] font-medium">
                   Parent Portal Login →
                 </a>
               </li>
@@ -63,15 +63,15 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-sm font-light">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#0F4C81] mt-0.5 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-[#636B2F] mt-0.5 flex-shrink-0" />
                 <span>Near Bharat Gas Godown, New Railway Station Ater Road, Bhind (M.P.)</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[#0F4C81] flex-shrink-0" />
+                <Phone className="w-5 h-5 text-[#636B2F] flex-shrink-0" />
                 <span>+91 72474 71234, 72474 81234</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[#0F4C81] flex-shrink-0" />
+                <Mail className="w-5 h-5 text-[#636B2F] flex-shrink-0" />
                 <span>info@excellencevalley.org</span>
               </li>
             </ul>
@@ -89,11 +89,11 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full bg-slate-800 text-white placeholder-slate-500 rounded-xl px-4 py-3 text-sm border border-slate-700/50 focus:outline-none focus:border-[#0F4C81] transition-all pr-12"
+                className="w-full bg-slate-800 text-white placeholder-slate-500 rounded-xl px-4 py-3 text-sm border border-slate-700/50 focus:outline-none focus:border-[#636B2F] transition-all pr-12"
               />
               <button
                 type="submit"
-                className="absolute right-1 w-9 h-9 rounded-lg bg-[#0F4C81] text-white flex items-center justify-center hover:bg-[#0c3e6a] transition-all cursor-pointer"
+                className="absolute right-1 w-9 h-9 rounded-lg bg-[#636B2F] text-white flex items-center justify-center hover:bg-[#0c3e6a] transition-all cursor-pointer"
                 aria-label="Subscribe"
               >
                 <ArrowRight className="w-4 h-4" />

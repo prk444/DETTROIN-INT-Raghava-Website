@@ -21,12 +21,12 @@ export default function Button({
   const baseStyles = 'inline-flex items-center justify-center font-medium rounded-xl transition-all-premium cursor-pointer outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:pointer-events-none active:scale-[0.98]';
   
   const variants = {
-    primary: 'bg-[#0F4C81] text-white hover:bg-[#0c3e6a] hover:-translate-y-0.5 hover:shadow-premium focus:ring-[#0F4C81]/30 border border-transparent',
-    secondary: 'bg-[#e7eff8] text-[#0F4C81] hover:bg-[#d5e4f4] hover:-translate-y-0.5 focus:ring-[#0F4C81]/25 border border-transparent',
-    accent: 'bg-[#F4B400] text-[#111827] hover:bg-[#db9f00] hover:-translate-y-0.5 hover:shadow-[#F4B400]/20 focus:ring-[#F4B400]/30 border border-transparent',
-    outline: 'border border-slate-250 bg-white text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:bg-slate-50 hover:-translate-y-0.5 focus:ring-slate-500/20',
-    ghost: 'text-[#0F4C81] hover:bg-slate-100/70 focus:ring-slate-500/10',
-    link: 'text-[#0F4C81] hover:underline underline-offset-4 p-0 rounded-none bg-transparent hover:bg-transparent shadow-none hover:shadow-none hover:translate-y-0 active:scale-100 focus:ring-0',
+    primary: 'bg-[#F4B400] text-[#3D4127] hover:bg-[#D9A000] hover:-translate-y-0.5 hover:shadow-premium focus:ring-[#F4B400]/30 border border-transparent font-semibold',
+    secondary: 'bg-[#FAF4E8] text-[#3D4127] hover:bg-[#EFE9DC] hover:-translate-y-0.5 focus:ring-[#FAF4E8]/25 border border-[#DCD6C8]',
+    accent: 'bg-[#EAB308] text-white hover:bg-[#CA9A04] hover:-translate-y-0.5 hover:shadow-[#EAB308]/20 focus:ring-[#EAB308]/30 border border-transparent',
+    outline: 'border border-[#DCD6C8] bg-white/45 text-[#3D4127] hover:border-[#C5BDAA] hover:text-[#3D4127] hover:bg-white hover:-translate-y-0.5 focus:ring-slate-500/20',
+    ghost: 'text-[#3D4127] hover:bg-slate-100/70 focus:ring-slate-500/10',
+    link: 'text-[#3D4127] hover:underline underline-offset-4 p-0 rounded-none bg-transparent hover:bg-transparent shadow-none hover:shadow-none hover:translate-y-0 active:scale-100 focus:ring-0',
   };
 
   const sizes = {

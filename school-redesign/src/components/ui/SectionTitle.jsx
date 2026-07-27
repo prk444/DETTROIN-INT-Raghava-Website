@@ -20,8 +20,8 @@ export default function SectionTitle({
   };
 
   const badgeColors = light
-    ? 'text-[#F4B400] bg-white/10 border border-white/20'
-    : 'text-[#0F4C81] bg-[#e7eff8] border border-[#0F4C81]/10';
+    ? 'text-[#D4DE95] bg-white/10 border border-white/20'
+    : 'text-[#636B2F] bg-[#e7eff8] border border-[#636B2F]/10';
 
   const titleColors = light
     ? 'text-white'

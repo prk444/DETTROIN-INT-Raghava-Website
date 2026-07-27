@@ -57,7 +57,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           scrolled
-            ? 'py-4 bg-[#F5F2EB]/80 backdrop-blur-md shadow-premium border-b border-[#E8E2D5]/60'
+            ? 'py-4 bg-[#EBF1E9]/80 backdrop-blur-md shadow-premium border-b border-[#BAC095]/65'
             : 'py-6 bg-transparent'
         }`}
       >
@@ -65,14 +65,14 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo Brand */}
             <a href="#" className="flex items-center gap-2.5 group select-none">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0F4C81] text-white shadow-[#0F4C81]/20 transition-transform duration-500 group-hover:rotate-12">
+              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#636B2F] text-white shadow-[#636B2F]/20 transition-transform duration-500 group-hover:rotate-12">
                 <Compass className="w-5.5 h-5.5 stroke-[2]" />
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg leading-tight tracking-tight text-slate-900">
                   EXCELLENCE
                 </span>
-                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold leading-none">
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4DE95] font-semibold leading-none">
                   International
                 </span>
               </div>
@@ -88,13 +88,13 @@ export default function Navbar() {
                     href={link.href}
                     className={`relative py-1.5 text-sm font-semibold tracking-wide transition-all duration-350 ${
                       isActive
-                        ? 'text-[#0F4C81]'
-                        : 'text-slate-600 hover:text-[#0F4C81]'
+                        ? 'text-[#636B2F]'
+                        : 'text-slate-600 hover:text-[#636B2F]'
                     } group`}
                   >
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-0 h-[2px] bg-[#0F4C81] transition-transform duration-350 ease-out origin-left ${
+                      className={`absolute bottom-0 left-0 h-[2px] bg-[#636B2F] transition-transform duration-350 ease-out origin-left ${
                         isActive ? 'w-full scale-x-100' : 'w-full scale-x-0 group-hover:scale-x-100'
                       }`}
                     />
@@ -163,13 +163,13 @@ export default function Navbar() {
 
       {/* Mobile Drawer Panel */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-[320px] bg-[#F5F2EB] border-l border-[#E8E2D5]/60 p-8 shadow-2xl transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) transform lg:hidden ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-[320px] bg-[#EBF1E9] border-l border-[#BAC095]/65 p-8 shadow-2xl transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) transform lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex items-center justify-between mb-10 border-b border-slate-100 pb-6">
           <a href="#" className="flex items-center gap-2 group select-none">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#0F4C81] text-white">
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#636B2F] text-white">
               <Compass className="w-4.5 h-4.5" />
             </div>
             <span className="font-heading font-bold text-base text-slate-900 tracking-tight">
@@ -194,8 +194,8 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`text-base font-semibold transition-all duration-300 py-1.5 ${
                   isActive
-                    ? 'text-[#0F4C81] border-l-4 border-[#0F4C81] pl-4 font-bold'
-                    : 'text-slate-650 hover:text-[#0F4C81] hover:pl-2 pl-0'
+                    ? 'text-[#636B2F] border-l-4 border-[#636B2F] pl-4 font-bold'
+                    : 'text-slate-650 hover:text-[#636B2F] hover:pl-2 pl-0'
                 }`}
               >
                 {link.label}
