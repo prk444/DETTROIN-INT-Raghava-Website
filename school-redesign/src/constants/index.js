@@ -1,11 +1,13 @@
-// Static content constants for Horizon International School
+// Static content constants for Excellence International School
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#' },
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
   { label: 'Academics', href: '#academics' },
   { label: 'Admissions', href: '#admissions' },
-  { label: 'Student Life', href: '#student-life' },
-  { label: 'About Us', href: '#about' },
+  { label: 'Facilities', href: '#facilities' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export const SCHOOL_STATS = [
@@ -60,7 +62,7 @@ export const ACADEMIC_PROGRAMS = [
 
 export const TESTIMONIALS = [
   {
-    quote: "Horizon's academic environment challenged me to think globally and critically. The teachers aren't just educators; they are mentors who guided me all the way to Stanford.",
+    quote: "Excellence's academic environment challenged me to think globally and critically. The teachers aren't just educators; they are mentors who guided me all the way to Stanford.",
     author: "Elena Rostova",
     role: "Class of 2024 Alumni, Stanford University",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256&h=256"
@@ -72,7 +74,7 @@ export const TESTIMONIALS = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=256&h=256"
   },
   {
-    quote: "Horizon provides an exceptional synthesis of rigorous standards and creative expression. The design and technology facilities here rival those of top-tier universities.",
+    quote: "Excellence provides an exceptional synthesis of rigorous standards and creative expression. The design and technology facilities here rival those of top-tier universities.",
     author: "David Chen",
     role: "Head of STEAM Department",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=256&h=256"
@@ -82,7 +84,7 @@ export const TESTIMONIALS = [
 export const FAQS = [
   {
     question: "What is the primary curriculum followed?",
-    answer: "Horizon offers an integrated international framework combining the International Baccalaureate (IB) Programme for High School and Advanced Placement (AP) courses, built on a foundation of rigorous global standards in primary years."
+    answer: "Excellence offers an integrated international framework combining the International Baccalaureate (IB) Programme for High School and Advanced Placement (AP) courses, built on a foundation of rigorous global standards in primary years."
   },
   {
     question: "How does the school support non-native English speakers?",

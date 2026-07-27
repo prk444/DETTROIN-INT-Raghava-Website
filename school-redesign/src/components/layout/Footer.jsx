@@ -15,7 +15,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg leading-tight tracking-tight text-white">
-                  HORIZON
+                  EXCELLENCE
                 </span>
                 <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold leading-none">
                   International
@@ -64,15 +64,15 @@ export default function Footer() {
             <ul className="space-y-3 text-sm font-light">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#0F4C81] mt-0.5 flex-shrink-0" />
-                <span>100 Academy Boulevard, Education District, TX 75001</span>
+                <span>Near Bharat Gas Godown, New Railway Station Ater Road, Bhind (M.P.)</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#0F4C81] flex-shrink-0" />
-                <span>+1 (800) 555-0199</span>
+                <span>+91 72474 71234, 72474 81234</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#0F4C81] flex-shrink-0" />
-                <span>admissions@horizon.edu</span>
+                <span>info@excellencevalley.org</span>
               </li>
             </ul>
           </div>
@@ -83,7 +83,7 @@ export default function Footer() {
               Stay Connected
             </h4>
             <p className="text-sm font-light text-slate-400">
-              Subscribe to the Horizon Newsletter for admissions deadlines, news, and events.
+              Subscribe to the Excellence Newsletter for admissions deadlines, news, and events.
             </p>
             <form onSubmit={(e) => e.preventDefault()} className="relative flex items-center mt-2">
               <input
@@ -104,7 +104,7 @@ export default function Footer() {
 
         {/* Bottom Line copyright */}
         <div className="flex flex-col sm:flex-row items-center justify-between border-t border-slate-800 pt-8 mt-8 text-xs font-light text-slate-500">
-          <p>© {new Date().getFullYear()} Horizon International School. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Excellence International School. All rights reserved.</p>
           <div className="flex gap-6 mt-4 sm:mt-0">
             <a href="#privacy" className="hover:text-slate-300">Privacy Policy</a>
             <a href="#terms" className="hover:text-slate-300">Terms of Use</a>

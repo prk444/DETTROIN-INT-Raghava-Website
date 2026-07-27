@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Compass } from 'lucide-react';
+import { X, Compass } from 'lucide-react';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 import { NAV_LINKS } from '../../constants';
@@ -7,10 +7,12 @@ import { NAV_LINKS } from '../../constants';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
+  // Handle transparent to white background transition on scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 40) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -20,98 +22,193 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Set up intersection observer to detect active scroll section
+  useEffect(() => {
+    const sections = NAV_LINKS.map((link) => link.href.substring(1)).filter(Boolean);
+
+    const handleObserver = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleObserver, {
+      root: null,
+      rootMargin: '-40% 0px -50% 0px', // Trigger when section occupies the active middle portion
+    });
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'py-4 glassmorphism shadow-premium border-b border-slate-100/50'
-          : 'py-6 bg-transparent'
-      }`}
-    >
-      <Container>
-        <div className="flex items-center justify-between">
-          {/* Logo Brand */}
-          <a href="#" className="flex items-center gap-2.5 group">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0F4C81] text-white shadow-[#0F4C81]/20 transition-transform duration-300 group-hover:rotate-12">
-              <Compass className="w-5.5 h-5.5 stroke-[2]" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading font-bold text-lg leading-tight tracking-tight text-slate-900">
-                HORIZON
-              </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold leading-none">
-                International
-              </span>
-            </div>
-          </a>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+          scrolled
+            ? 'py-4 bg-white/30 backdrop-blur-lg shadow-premium-soft border-b border-white/20'
+            : 'py-6 bg-transparent'
+        }`}
+      >
+        <Container>
+          <div className="flex items-center justify-between">
+            {/* 1. Brand Logo */}
+            <a href="#" className="flex items-center gap-2.5 group select-none">
+              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0F4C81] text-white shadow-[#0F4C81]/20 transition-transform duration-500 group-hover:rotate-12">
+                <Compass className="w-5.5 h-5.5 stroke-[2]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-heading font-bold text-lg leading-tight tracking-tight text-slate-900">
+                  EXCELLENCE
+                </span>
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#F4B400] font-semibold leading-none">
+                  International
+                </span>
+              </div>
+            </a>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-slate-600 hover:text-[#0F4C81] transition-colors duration-200"
-              >
-                {link.label}
+            {/* 2. Desktop Navigation Links with Hover Underline Animations */}
+            <div className="hidden lg:flex items-center gap-8">
+              {NAV_LINKS.map((link) => {
+                const isActive = activeSection === link.href.substring(1);
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className={`relative py-1.5 text-sm font-semibold tracking-wide transition-all duration-300 ${
+                      isActive
+                        ? 'text-[#0F4C81]'
+                        : 'text-slate-500 hover:text-[#0F4C81]'
+                    } group`}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute bottom-0 left-0 h-[2px] bg-[#0F4C81] transition-transform duration-300 ease-out origin-left ${
+                        isActive ? 'w-full scale-x-100' : 'w-full scale-x-0 group-hover:scale-x-100'
+                      }`}
+                    />
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* 3. Large Desktop CTA Action Button */}
+            <div className="hidden lg:flex items-center gap-4">
+              <a href="#contact">
+                <Button variant="outline" size="sm">
+                  Inquire
+                </Button>
               </a>
-            ))}
-          </div>
+              <a href="#admissions">
+                <Button variant="primary" size="md" className="shadow-premium-soft font-semibold px-6">
+                  Apply Now
+                </Button>
+              </a>
+            </div>
 
-          {/* Desktop CTA Action Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <a href="#admissions">
-              <Button variant="outline" size="sm">
-                Inquire
-              </Button>
-            </a>
-            <a href="#admissions">
-              <Button variant="primary" size="sm">
-                Apply Now
-              </Button>
-            </a>
+            {/* 4. Modern Hamburger Menu button with custom-line transitions */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden relative w-10 h-10 flex flex-col justify-center items-center group cursor-pointer focus:outline-none z-50"
+              aria-label="Toggle navigation drawer"
+            >
+              <div className="space-y-1.5">
+                <span
+                  className={`block w-6 h-0.5 bg-slate-900 transition-all duration-300 ease-out ${
+                    isOpen ? 'rotate-45 translate-y-2' : ''
+                  }`}
+                />
+                <span
+                  className={`block w-6 h-0.5 bg-slate-900 transition-all duration-300 ease-out ${
+                    isOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+                  }`}
+                />
+                <span
+                  className={`block w-6 h-0.5 bg-slate-900 transition-all duration-300 ease-out ${
+                    isOpen ? '-rotate-45 -translate-y-2' : ''
+                  }`}
+                />
+              </div>
+            </button>
           </div>
+        </Container>
+      </nav>
 
-          {/* Mobile Menu Toggle button */}
+      {/* 5. Mobile Drawer Backdrop Glass Overlay */}
+      <div
+        className={`fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-xs transition-opacity duration-500 ease-in-out lg:hidden ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsOpen(false)}
+      />
+
+      {/* 6. Mobile Side Drawer panel sliding from right */}
+      <div
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-[320px] bg-white p-8 shadow-2xl transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) transform lg:hidden ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex items-center justify-between mb-10 border-b border-slate-50 pb-6">
+          <a href="#" className="flex items-center gap-2 group select-none">
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#0F4C81] text-white">
+              <Compass className="w-4.5 h-4.5" />
+            </div>
+            <span className="font-heading font-bold text-base text-slate-900 tracking-tight">
+              EXCELLENCE
+            </span>
+          </a>
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer"
-            aria-label="Toggle navigation menu"
+            onClick={() => setIsOpen(false)}
+            className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all cursor-pointer focus:outline-none"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <X className="w-5.5 h-5.5" />
           </button>
         </div>
-      </Container>
 
-      {/* Mobile Drawer Navigation Menu */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 glassmorphism shadow-xl border-b border-slate-150 p-6 flex flex-col gap-5 animate-in fade-in slide-in-from-top-4 duration-200">
-          <div className="flex flex-col gap-4">
-            {NAV_LINKS.map((link) => (
+        <div className="flex flex-col gap-6">
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-base font-medium text-slate-700 hover:text-[#0F4C81] transition-colors py-2 border-b border-slate-100/50"
+                className={`text-base font-semibold transition-all duration-300 py-1.5 ${
+                  isActive
+                    ? 'text-[#0F4C81] border-l-4 border-[#0F4C81] pl-4 font-bold'
+                    : 'text-slate-600 hover:text-[#0F4C81] hover:pl-2 pl-0'
+                }`}
               >
                 {link.label}
               </a>
-            ))}
-          </div>
-          <div className="flex flex-col gap-3 pt-2">
-            <a href="#admissions" onClick={() => setIsOpen(false)}>
-              <Button variant="outline" className="w-full">
-                Inquire
-              </Button>
-            </a>
-            <a href="#admissions" onClick={() => setIsOpen(false)}>
-              <Button variant="primary" className="w-full">
-                Apply Now
-              </Button>
-            </a>
-          </div>
+            );
+          })}
         </div>
-      )}
-    </nav>
+
+        <div className="absolute bottom-8 left-8 right-8 flex flex-col gap-4">
+          <a href="#contact" onClick={() => setIsOpen(false)}>
+            <Button variant="outline" className="w-full py-3">
+              Inquire
+            </Button>
+          </a>
+          <a href="#admissions" onClick={() => setIsOpen(false)}>
+            <Button variant="primary" className="w-full py-3 shadow-premium-soft font-semibold">
+              Apply Now
+            </Button>
+          </a>
+        </div>
+      </div>
+    </>
   );
 }
