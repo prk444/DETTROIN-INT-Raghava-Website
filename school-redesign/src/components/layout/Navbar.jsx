@@ -9,7 +9,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Handle transparent to white background transition on scroll
+  // Transition padding & backdrop-blur on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 40) {
@@ -22,7 +22,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Set up intersection observer to detect active scroll section
+  // Intersection observer to track scrolled section
   useEffect(() => {
     const sections = NAV_LINKS.map((link) => link.href.substring(1)).filter(Boolean);
 
@@ -36,7 +36,7 @@ export default function Navbar() {
 
     const observer = new IntersectionObserver(handleObserver, {
       root: null,
-      rootMargin: '-40% 0px -50% 0px', // Trigger when section occupies the active middle portion
+      rootMargin: '-40% 0px -50% 0px',
     });
 
     sections.forEach((id) => {
@@ -57,13 +57,13 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           scrolled
-            ? 'py-4 bg-white/30 backdrop-blur-lg shadow-premium-soft border-b border-white/20'
+            ? 'py-4 bg-white/70 backdrop-blur-md shadow-premium border-b border-slate-200/40'
             : 'py-6 bg-transparent'
         }`}
       >
         <Container>
           <div className="flex items-center justify-between">
-            {/* 1. Brand Logo */}
+            {/* Logo Brand */}
             <a href="#" className="flex items-center gap-2.5 group select-none">
               <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0F4C81] text-white shadow-[#0F4C81]/20 transition-transform duration-500 group-hover:rotate-12">
                 <Compass className="w-5.5 h-5.5 stroke-[2]" />
@@ -78,7 +78,7 @@ export default function Navbar() {
               </div>
             </a>
 
-            {/* 2. Desktop Navigation Links with Hover Underline Animations */}
+            {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center gap-8">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
@@ -86,15 +86,15 @@ export default function Navbar() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className={`relative py-1.5 text-sm font-semibold tracking-wide transition-all duration-300 ${
+                    className={`relative py-1.5 text-sm font-semibold tracking-wide transition-all duration-350 ${
                       isActive
                         ? 'text-[#0F4C81]'
-                        : 'text-slate-500 hover:text-[#0F4C81]'
+                        : 'text-slate-600 hover:text-[#0F4C81]'
                     } group`}
                   >
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-0 h-[2px] bg-[#0F4C81] transition-transform duration-300 ease-out origin-left ${
+                      className={`absolute bottom-0 left-0 h-[2px] bg-[#0F4C81] transition-transform duration-350 ease-out origin-left ${
                         isActive ? 'w-full scale-x-100' : 'w-full scale-x-0 group-hover:scale-x-100'
                       }`}
                     />
@@ -103,21 +103,29 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* 3. Large Desktop CTA Action Button */}
+            {/* Desktop CTA Action Button */}
             <div className="hidden lg:flex items-center gap-4">
               <a href="#contact">
-                <Button variant="outline" size="sm">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="bg-transparent text-slate-700 hover:bg-slate-50 hover:text-slate-900 border-slate-200/80"
+                >
                   Inquire
                 </Button>
               </a>
               <a href="#admissions">
-                <Button variant="primary" size="md" className="shadow-premium-soft font-semibold px-6">
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="shadow-premium-soft font-semibold px-6 transition-all duration-300"
+                >
                   Apply Now
                 </Button>
               </a>
             </div>
 
-            {/* 4. Modern Hamburger Menu button with custom-line transitions */}
+            {/* Modern Hamburger Menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden relative w-10 h-10 flex flex-col justify-center items-center group cursor-pointer focus:outline-none z-50"
@@ -145,21 +153,21 @@ export default function Navbar() {
         </Container>
       </nav>
 
-      {/* 5. Mobile Drawer Backdrop Glass Overlay */}
+      {/* Mobile Drawer Backdrop Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-xs transition-opacity duration-500 ease-in-out lg:hidden ${
+        className={`fixed inset-0 z-40 bg-slate-950/15 backdrop-blur-xs transition-opacity duration-500 ease-in-out lg:hidden ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsOpen(false)}
       />
 
-      {/* 6. Mobile Side Drawer panel sliding from right */}
+      {/* Mobile Drawer Panel */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-[320px] bg-white p-8 shadow-2xl transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) transform lg:hidden ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-[320px] bg-white border-l border-slate-100 p-8 shadow-2xl transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) transform lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between mb-10 border-b border-slate-50 pb-6">
+        <div className="flex items-center justify-between mb-10 border-b border-slate-100 pb-6">
           <a href="#" className="flex items-center gap-2 group select-none">
             <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#0F4C81] text-white">
               <Compass className="w-4.5 h-4.5" />
@@ -170,7 +178,7 @@ export default function Navbar() {
           </a>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all cursor-pointer focus:outline-none"
+            className="p-2 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-slate-900 transition-all cursor-pointer focus:outline-none"
           >
             <X className="w-5.5 h-5.5" />
           </button>
@@ -187,7 +195,7 @@ export default function Navbar() {
                 className={`text-base font-semibold transition-all duration-300 py-1.5 ${
                   isActive
                     ? 'text-[#0F4C81] border-l-4 border-[#0F4C81] pl-4 font-bold'
-                    : 'text-slate-600 hover:text-[#0F4C81] hover:pl-2 pl-0'
+                    : 'text-slate-650 hover:text-[#0F4C81] hover:pl-2 pl-0'
                 }`}
               >
                 {link.label}
@@ -198,7 +206,7 @@ export default function Navbar() {
 
         <div className="absolute bottom-8 left-8 right-8 flex flex-col gap-4">
           <a href="#contact" onClick={() => setIsOpen(false)}>
-            <Button variant="outline" className="w-full py-3">
+            <Button variant="outline" className="w-full py-3 text-slate-700 border border-slate-200">
               Inquire
             </Button>
           </a>
