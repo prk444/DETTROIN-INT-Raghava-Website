@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Calendar, Compass, Shield, Award, Users, BookOpen, ChevronDown, GraduationCap, Trophy, Target, Eye, Sparkles } from 'lucide-react';
+import { ArrowRight, Calendar, Compass, Shield, Award, Users, BookOpen, ChevronDown, GraduationCap, Trophy, Target, Eye, Sparkles, Tv, Laptop, Globe, Activity, Lightbulb } from 'lucide-react';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import SectionTitle from '../components/ui/SectionTitle';
@@ -173,17 +173,23 @@ export default function Home() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {ACADEMIC_PROGRAMS.map((program) => (
-              <ProgramCard
-                key={program.id}
-                title={program.title}
-                ageRange={program.ageRange}
-                description={program.description}
-                features={program.features}
-                tagColor={program.tagColor}
-                onClick={() => alert(`Showing details for ${program.title}`)}
-              />
-            ))}
+            {ACADEMIC_PROGRAMS.map((program) => {
+              let progImg = classroomKidsImg;
+              if (program.id === 'primary-school') progImg = kidsLunchImg;
+              if (program.id === 'middle-school') progImg = studentsImg;
+
+              return (
+                <ProgramCard
+                  key={program.id}
+                  image={progImg}
+                  title={program.title}
+                  ageRange={program.ageRange}
+                  description={program.description}
+                  tagColor={program.tagColor}
+                  onClick={() => alert(`Showing details for ${program.title}`)}
+                />
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -342,6 +348,99 @@ export default function Home() {
               </div>
 
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 4.5 WHY CHOOSE US SECTION */}
+      <section id="why-choose-us" className="py-24 relative overflow-hidden bg-[#F5F2EB] border-b border-[#E8E2D5]/30">
+        {/* Soft Decorative Blobs */}
+        <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-[#0F4C81]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#F4B400]/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <Container className="relative z-10">
+          <SectionTitle
+            badge="Why Choose Us"
+            title="A Premium Environment for Holistic Growth"
+            subtitle="Discover the pillars of excellence that distinguish our institution as the top school in Aligarh."
+            light={false}
+            className="mb-16"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            {/* Card 1: Smart Classrooms */}
+            <div className="group relative p-8 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C81]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-12 h-12 rounded-2xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Tv className="w-6 h-6 stroke-[2]" />
+              </div>
+              <h4 className="text-lg font-bold text-[#2E2A24] mb-3 font-heading">Smart Classrooms</h4>
+              <p className="text-xs sm:text-sm font-light text-[#2E2A24]/70 leading-relaxed">
+                Equipped with interactive screens, high-end multimedia units, and customized acoustics for an immersive audio-visual learning experience.
+              </p>
+            </div>
+
+            {/* Card 2: Digital Learning */}
+            <div className="group relative p-8 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C81]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-12 h-12 rounded-2xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Laptop className="w-6 h-6 stroke-[2]" />
+              </div>
+              <h4 className="text-lg font-bold text-[#2E2A24] mb-3 font-heading">Digital Learning</h4>
+              <p className="text-xs sm:text-sm font-light text-[#2E2A24]/70 leading-relaxed">
+                Synthesis of programming, virtual classroom resources, and tablet integration to build vital technological literacy early.
+              </p>
+            </div>
+
+            {/* Card 3: Experienced Faculty */}
+            <div className="group relative p-8 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C81]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-12 h-12 rounded-2xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <GraduationCap className="w-6 h-6 stroke-[2]" />
+              </div>
+              <h4 className="text-lg font-bold text-[#2E2A24] mb-3 font-heading">Experienced Faculty</h4>
+              <p className="text-xs sm:text-sm font-light text-[#2E2A24]/70 leading-relaxed">
+                Guided by expert subject specialists who nurture student curiosity, support personal growth, and instill core moral discipline.
+              </p>
+            </div>
+
+            {/* Card 4: Global Curriculum */}
+            <div className="group relative p-8 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C81]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-12 h-12 rounded-2xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Globe className="w-6 h-6 stroke-[2]" />
+              </div>
+              <h4 className="text-lg font-bold text-[#2E2A24] mb-3 font-heading">Global Curriculum</h4>
+              <p className="text-xs sm:text-sm font-light text-[#2E2A24]/70 leading-relaxed">
+                An outstanding structured curriculum combining academic basics with global methodologies to prepare students for real-world scenarios.
+              </p>
+            </div>
+
+            {/* Card 5: Sports & Athletics */}
+            <div className="group relative p-8 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C81]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-12 h-12 rounded-2xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Activity className="w-6 h-6 stroke-[2]" />
+              </div>
+              <h4 className="text-lg font-bold text-[#2E2A24] mb-3 font-heading">Sports & Athletics</h4>
+              <p className="text-xs sm:text-sm font-light text-[#2E2A24]/70 leading-relaxed">
+                Dedicated training grounds and professional instructors emphasizing physical health, collaborative teamwork, and sportsmanship.
+              </p>
+            </div>
+
+            {/* Card 6: Innovation Labs */}
+            <div className="group relative p-8 bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C81]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-12 h-12 rounded-2xl bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0F4C81] group-hover:text-white">
+                <Lightbulb className="w-6 h-6 stroke-[2]" />
+              </div>
+              <h4 className="text-lg font-bold text-[#2E2A24] mb-3 font-heading">Innovation Labs</h4>
+              <p className="text-xs sm:text-sm font-light text-[#2E2A24]/70 leading-relaxed">
+                Hands-on practical labs, robotics kits, and STEM challenges to inspire innovative problem-solving and critical enquiry.
+              </p>
+            </div>
+
           </div>
         </Container>
       </section>

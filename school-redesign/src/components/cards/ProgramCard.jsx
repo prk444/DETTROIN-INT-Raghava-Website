@@ -1,68 +1,67 @@
 import React from 'react';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 /**
- * A light theme premium card representing an educational program.
- * Features a semi-transparent white glass backdrop, large border-radius, clean spacing, and gold/blue hover micro-animations.
+ * A highly polished, modern Program Card.
+ * Includes an image header with scale animations, tag metadata, title, short description,
+ * and a hovering arrow-button that shifts to the right on hover.
  */
 export default function ProgramCard({
+  image,
   title,
   ageRange,
   description,
-  features = [],
   tagColor = 'bg-[#0f4c81]/5 text-[#0F4C81] border-[#0f4c81]/10',
   onClick,
 }) {
   return (
     <div 
-      className="group relative flex flex-col justify-between bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl p-8 sm:p-10 shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 overflow-hidden text-[#2E2A24]"
+      className="group relative flex flex-col justify-between bg-[#FCFAF2]/80 border border-[#E8E2D5]/70 rounded-3xl p-6 sm:p-7 shadow-premium hover:shadow-premium-hover transition-all-premium hover:-translate-y-1.5 overflow-hidden text-[#2E2A24]"
     >
-      {/* Decorative Accent Highlight on Hover */}
+      {/* Subtle hover gradient glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C81]/[0.02] to-[#F4B400]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-      {/* Content */}
       <div>
+        {/* Card Image Header */}
+        {image && (
+          <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-[#E8E2D5]/40 bg-slate-100 shadow-sm">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+            />
+          </div>
+        )}
+
         {/* Header Tag */}
-        <div className="flex justify-between items-center mb-6">
-          <span className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide border ${tagColor}`}>
+        <div className="flex justify-between items-center mb-4">
+          <span className={`px-3 py-1 rounded-full text-[11px] font-bold tracking-wide border ${tagColor}`}>
             {ageRange}
           </span>
-          <span className="text-xs text-slate-400 font-mono tracking-widest uppercase">Pathway</span>
+          <span className="text-[10px] text-slate-400 font-mono tracking-widest uppercase">Stage</span>
         </div>
 
         {/* Title */}
-        <h3 className="text-xl sm:text-2xl font-semibold text-[#2E2A24] mb-4 group-hover:text-[#0F4C81] transition-colors duration-200 font-heading">
+        <h3 className="text-lg sm:text-xl font-bold text-[#2E2A24] mb-3 group-hover:text-[#0F4C81] transition-colors duration-200 font-heading leading-snug">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm sm:text-base font-light text-[#2E2A24]/70 leading-relaxed mb-6">
+        <p className="text-xs sm:text-sm font-light text-[#2E2A24]/70 leading-relaxed mb-6">
           {description}
         </p>
-
-        {/* Features List */}
-        {features.length > 0 && (
-          <ul className="space-y-3.5 mb-8 border-t border-[#E8E2D5]/40 pt-6">
-            {features.map((feature, index) => (
-              <li key={index} className="flex items-start text-xs sm:text-sm text-[#2E2A24]/85 gap-3">
-                <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#16A34A]/10 text-[#16A34A] flex items-center justify-center">
-                  <Check className="w-2.5 h-2.5 stroke-[3]" />
-                </span>
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
 
-      {/* Action Footer */}
-      <div className="mt-auto">
+      {/* Action Footer with Arrow Icon */}
+      <div className="mt-auto pt-4 border-t border-[#E8E2D5]/30">
         <button
           onClick={onClick}
-          className="flex items-center text-sm font-semibold text-[#0F4C81] gap-2 hover:text-[#0c3e6a] transition-all-premium cursor-pointer group/btn"
+          className="flex items-center text-xs sm:text-sm font-bold text-[#0F4C81] gap-2 hover:text-[#0c3e6a] transition-all-premium cursor-pointer group/btn"
         >
-          <span>Explore curriculum</span>
-          <ArrowRight className="w-4 h-4 transition-transform duration-350 transform group-hover/btn:translate-x-1" />
+          <span>Explore Stage Details</span>
+          <div className="w-8 h-8 rounded-full bg-[#0F4C81]/5 text-[#0F4C81] flex items-center justify-center transition-transform duration-350 transform group-hover/btn:translate-x-1.5 group-hover:bg-[#0F4C81] group-hover:text-white">
+            <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+          </div>
         </button>
       </div>
     </div>
