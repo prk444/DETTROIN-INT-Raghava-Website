@@ -57,7 +57,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           scrolled
-            ? 'py-4 bg-white/70 backdrop-blur-md shadow-premium border-b border-slate-200/40'
+            ? 'py-4 bg-[#F5F2EB]/80 backdrop-blur-md shadow-premium border-b border-[#E8E2D5]/60'
             : 'py-6 bg-transparent'
         }`}
       >
@@ -163,7 +163,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Panel */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-[320px] bg-white border-l border-slate-100 p-8 shadow-2xl transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) transform lg:hidden ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-[320px] bg-[#F5F2EB] border-l border-[#E8E2D5]/60 p-8 shadow-2xl transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) transform lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

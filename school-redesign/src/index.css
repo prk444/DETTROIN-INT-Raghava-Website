@@ -9,9 +9,9 @@
   --color-accent-hover: #db9f00;
   --color-success: #16A34A;
   
-  /* Unified Light Blue Theme Background & Text */
-  --color-background-custom: #f0f4f8;
-  --color-text-custom: #1e293b;
+  /* Unified Warm Beige Theme Background & Text */
+  --color-background-custom: #F5F2EB;
+  --color-text-custom: #2E2A24;
   
   /* Brand Fonts */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -23,9 +23,9 @@
   --radius-3xl: 2rem;
   
   /* Soft Premium Shadows (Apple / Stripe style) */
-  --shadow-premium: 0 10px 30px -10px rgba(15, 76, 129, 0.08), 0 1px 3px rgba(0, 0, 0, 0.01);
-  --shadow-premium-hover: 0 20px 40px -12px rgba(15, 76, 129, 0.14), 0 4px 12px -2px rgba(15, 76, 129, 0.04);
-  --shadow-premium-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.01);
+  --shadow-premium: 0 10px 30px -10px rgba(46, 42, 36, 0.06), 0 1px 3px rgba(0, 0, 0, 0.01);
+  --shadow-premium-hover: 0 20px 40px -12px rgba(46, 42, 36, 0.12), 0 4px 12px -2px rgba(46, 42, 36, 0.03);
+  --shadow-premium-soft: 0 4px 20px -2px rgba(46, 42, 36, 0.03), 0 1px 3px rgba(0, 0, 0, 0.01);
 }
 
 @layer base {
@@ -45,16 +45,16 @@
     font-family: var(--font-heading);
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: #111827;
+    color: #2E2A24;
   }
 }
 
 /* Micro-animations and Utilities */
 .glassmorphism {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(252, 250, 242, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(232, 226, 213, 0.6);
 }
 
 /* Soft transition defaults for interactive items */
